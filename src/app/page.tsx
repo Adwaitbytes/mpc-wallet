@@ -66,7 +66,7 @@ export default function Home() {
               Dashboard
             </button>
             <button
-              onClick={() => router.push('/setup')}
+              onClick={() => router.push('/auth')}
               className="text-[13px] font-medium text-white bg-gradient-to-r from-indigo-500 to-violet-500 px-4 py-1.5 rounded-xl transition-all duration-150 hover:shadow-lg hover:shadow-indigo-500/20"
             >
               Get Started
@@ -97,7 +97,7 @@ export default function Home() {
 
           <div className="animate-fade-up animate-delay-300 flex flex-col sm:flex-row items-center justify-center gap-3">
             <button
-              onClick={() => router.push('/setup')}
+              onClick={() => router.push('/auth')}
               className="btn-primary px-7 py-3 text-sm w-full sm:w-auto"
             >
               Set Up Family Wallet
@@ -423,7 +423,7 @@ export default function Home() {
                 <p className="text-sm leading-relaxed mb-8" style={{ color: 'var(--text-s)' }}>
                   Two shares reconstruct the key, wiped from memory immediately after
                 </p>
-                <button onClick={() => router.push('/setup')} className="btn-primary px-6 py-2.5 text-sm">
+                <button onClick={() => router.push('/auth')} className="btn-primary px-6 py-2.5 text-sm">
                   Set up your vault <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -459,7 +459,7 @@ export default function Home() {
             No seed phrases, no hardware wallets. Just Google Sign-In and MPC on Stellar
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <button onClick={() => router.push('/setup')} className="btn-primary px-8 py-3 text-sm w-full sm:w-auto">
+            <button onClick={() => router.push('/auth')} className="btn-primary px-8 py-3 text-sm w-full sm:w-auto">
               <Shield className="w-4 h-4" />
               Set Up Family Wallet
               <ArrowRight className="w-4 h-4" />
@@ -481,7 +481,7 @@ export default function Home() {
             <span className="text-[11px] font-medium" style={{ color: 'var(--text-t)' }}>StellaRay Guardian</span>
           </div>
           <div className="flex items-center gap-4 text-[11px]" style={{ color: 'var(--text-t)' }}>
-            <a href="/setup" className="hover:opacity-70 transition-opacity">Setup</a>
+            <a href="/auth" className="hover:opacity-70 transition-opacity">Get Started</a>
             <a href="/parent" className="hover:opacity-70 transition-opacity">Parent</a>
             <a href="/child" className="hover:opacity-70 transition-opacity">Child</a>
             <span className="w-px h-3" style={{ background: 'var(--card-border)' }} />
