@@ -1,0 +1,289 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ── Theme variables ── */
+:root {
+  --bg: #000000;
+  --bg-s: #050505;
+  --text: #F5F5F7;
+  --text-s: #86868B;
+  --text-t: #48484A;
+  --accent: #6366F1;
+  --accent-h: #818CF8;
+  --border: rgba(255, 255, 255, 0.06);
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-e: rgba(255, 255, 255, 0.06);
+
+  /* Glass card system */
+  --card-bg: rgba(255, 255, 255, 0.025);
+  --card-bg-hover: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-border-hover: rgba(255, 255, 255, 0.14);
+  --card-border-top: rgba(255, 255, 255, 0.12);
+  --card-shadow:
+    0 0 0 0.5px rgba(255, 255, 255, 0.05),
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    0 8px 24px rgba(0, 0, 0, 0.25),
+    0 24px 48px rgba(0, 0, 0, 0.15);
+  --card-shadow-hover:
+    0 0 0 0.5px rgba(255, 255, 255, 0.08),
+    0 4px 8px rgba(0, 0, 0, 0.2),
+    0 12px 32px rgba(0, 0, 0, 0.3),
+    0 32px 64px rgba(0, 0, 0, 0.2);
+  --card-inset: inset 0 1px 0 rgba(255, 255, 255, 0.06), inset 0 0 20px rgba(255, 255, 255, 0.01);
+
+  /* Inner recessed panels */
+  --inner-bg: rgba(0, 0, 0, 0.3);
+  --inner-border: rgba(255, 255, 255, 0.04);
+  --inner-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+
+  /* Glass nav */
+  --glass-bg: rgba(10, 10, 10, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.08);
+
+  /* Buttons */
+  --btn-bg: rgba(255, 255, 255, 0.04);
+  --btn-border: rgba(255, 255, 255, 0.08);
+  --btn-bg-hover: rgba(255, 255, 255, 0.07);
+  --btn-border-hover: rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="light"] {
+  --bg: #F5F5F7;
+  --bg-s: #EBEBED;
+  --text: #1D1D1F;
+  --text-s: #6E6E73;
+  --text-t: #AEAEB2;
+  --accent: #4F46E5;
+  --accent-h: #6366F1;
+  --border: rgba(0, 0, 0, 0.08);
+  --surface: rgba(0, 0, 0, 0.03);
+  --surface-e: rgba(0, 0, 0, 0.05);
+
+  --card-bg: rgba(255, 255, 255, 0.55);
+  --card-bg-hover: rgba(255, 255, 255, 0.75);
+  --card-border: rgba(255, 255, 255, 0.6);
+  --card-border-hover: rgba(255, 255, 255, 0.8);
+  --card-border-top: rgba(255, 255, 255, 0.9);
+  --card-shadow:
+    0 0 0 0.5px rgba(0, 0, 0, 0.04),
+    0 2px 4px rgba(0, 0, 0, 0.03),
+    0 8px 24px rgba(0, 0, 0, 0.06),
+    0 24px 48px rgba(0, 0, 0, 0.04);
+  --card-shadow-hover:
+    0 0 0 0.5px rgba(0, 0, 0, 0.06),
+    0 4px 8px rgba(0, 0, 0, 0.04),
+    0 12px 32px rgba(0, 0, 0, 0.08),
+    0 32px 64px rgba(0, 0, 0, 0.06);
+  --card-inset: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 0 20px rgba(255, 255, 255, 0.1);
+
+  --inner-bg: rgba(0, 0, 0, 0.03);
+  --inner-border: rgba(0, 0, 0, 0.05);
+  --inner-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.5);
+
+  --btn-bg: rgba(0, 0, 0, 0.03);
+  --btn-border: rgba(0, 0, 0, 0.06);
+  --btn-bg-hover: rgba(0, 0, 0, 0.06);
+  --btn-border-hover: rgba(0, 0, 0, 0.1);
+}
+
+/* Hide Unicorn Studio watermark */
+a[href*="unicorn.studio"] {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  position: absolute !important;
+}
+
+@layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  ::selection {
+    background: rgba(99, 102, 241, 0.3);
+    color: var(--text);
+  }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--text-t); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--text-s); }
+}
+
+@layer components {
+  /* ── Gradients ── */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-violet-500;
+  }
+  .text-gradient-warm {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-amber-500 to-orange-500;
+  }
+
+  /* ══════════════════════════════════════════════════
+     GLASS NAV - Apple-style frosted navigation
+     ══════════════════════════════════════════════════ */
+  .glass-nav {
+    backdrop-filter: blur(40px) saturate(1.8);
+    -webkit-backdrop-filter: blur(40px) saturate(1.8);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-top-color: rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+    box-shadow:
+      0 4px 24px rgba(0, 0, 0, 0.12),
+      0 1px 2px rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    will-change: transform;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  /* ══════════════════════════════════════════════════
+     GLASS CARDS - True Apple glassmorphism
+     Translucent bg + backdrop-blur + layered shadows
+     + top-edge light highlight
+     ══════════════════════════════════════════════════ */
+  .card {
+    background: var(--card-bg);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border: 1px solid var(--card-border);
+    border-top-color: var(--card-border-top);
+    border-radius: 20px;
+    box-shadow: var(--card-shadow), var(--card-inset);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+
+  .card-hover {
+    background: var(--card-bg);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border: 1px solid var(--card-border);
+    border-top-color: var(--card-border-top);
+    border-radius: 20px;
+    box-shadow: var(--card-shadow), var(--card-inset);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+  .card-hover:hover {
+    background: var(--card-bg-hover);
+    border-color: var(--card-border-hover);
+    border-top-color: rgba(255, 255, 255, 0.18);
+    box-shadow: var(--card-shadow-hover), var(--card-inset);
+    transform: translateY(-2px);
+  }
+
+  /* ══════════════════════════════════════════════════
+     INNER PANELS - Recessed inset elements
+     ══════════════════════════════════════════════════ */
+  .inner-panel {
+    background: var(--inner-bg);
+    border: 1px solid var(--inner-border);
+    border-radius: 12px;
+    box-shadow: var(--inner-shadow);
+    transition: background 0.3s ease, border-color 0.3s ease;
+  }
+  .inner-panel-hover:hover {
+    background: var(--inner-bg);
+  }
+
+  /* ══════════════════════════════════════════════════
+     BUTTONS
+     ══════════════════════════════════════════════════ */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-gradient-to-r from-indigo-500 to-violet-500
+           text-white font-medium rounded-xl
+           transition-all duration-200
+           hover:shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-[1px]
+           active:translate-y-0 active:shadow-none;
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--btn-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--btn-border);
+    color: var(--text);
+    font-weight: 500;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+  }
+  .btn-secondary:hover {
+    background: var(--btn-bg-hover);
+    border-color: var(--btn-border-hover);
+    transform: translateY(-1px);
+  }
+
+  .btn-approve {
+    @apply inline-flex items-center justify-center gap-2
+           bg-gradient-to-r from-emerald-500 to-emerald-600
+           text-white font-medium rounded-xl
+           transition-all duration-200
+           hover:shadow-lg hover:shadow-emerald-500/25 hover:-translate-y-[1px];
+  }
+
+  .btn-deny {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: rgba(239, 68, 68, 0.06);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(239, 68, 68, 0.15);
+    color: #EF4444;
+    font-weight: 500;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+  }
+  .btn-deny:hover {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: rgba(239, 68, 68, 0.25);
+    transform: translateY(-1px);
+  }
+
+  /* ── Placeholder ── */
+  .placeholder-muted::placeholder {
+    color: var(--text-t);
+  }
+
+  /* ── Utilities ── */
+  .number-display {
+    font-feature-settings: 'tnum' 1, 'ss01' 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .glow-indigo {
+    box-shadow:
+      0 0 80px -20px rgba(99, 102, 241, 0.15),
+      0 8px 32px rgba(0, 0, 0, 0.25),
+      var(--card-inset);
+  }
+}
+
+@layer utilities {
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+  .animate-delay-500 { animation-delay: 500ms; }
+}
