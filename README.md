@@ -414,14 +414,6 @@ Add to Google Cloud Console (OAuth client):
 
 <br>
 
-## Built By
-
-**Adwait Keshari** — [GitHub](https://github.com/Adwaitbytes) · [Twitter](https://x.com/stellaraydotfun)
-
-Also the creator of [StellaRay](https://stellaray.fun) — zero-knowledge authentication for Stellar using Protocol 25.
-
-<br>
-
 ## License
 
 MIT
